@@ -1,11 +1,11 @@
 {% extends 'main/base.html' %}
 
 {% block title %}
-Создание робота
+Добавление роботов
 {% endblock %}
 
 {% block content %}
-    <h1>Создание робота</h1>
+    <h1>Добавить роботов в базу данных</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.title }}<br>

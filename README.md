@@ -10,16 +10,16 @@ sqlite3
 Разработка
 1) Создать виртуальное окружение
 python -m venv venv
-2)Активировать виртуальное окружение
+2) Активировать виртуальное окружение
 venv\Scripts\activate
-2) Устанавливить зависимости:
+3) Устанавливить зависимости:
  pip install -r requirements.txt
  pip freeze > requirements.txt
-3) Выполнить команду для выполнения миграций
+4) Выполнить команду для выполнения миграций
 python manage.py migrate
-4) Создать суперпользователя
+5) Создать суперпользователя
 python manage.py createsuperuser
-5) Запустить сервер
+6) Запустить сервер
 python manage.py runserver
 
 Copyright (c) 2021-present, EvgeniyNikolaevich
