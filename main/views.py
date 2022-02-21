@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Task
 from django.http import HttpResponse
 from .forms import TaskForm
+from django.db import transaction
 
 import  logging
 
@@ -26,6 +27,7 @@ def StewartPlatform(request):
     logger.info("Загрузка страницы 'Платформы'")
     return render(request, 'main/StewartPlatform.html')
 
+@transaction.atomic
 def create(request):
     logger.info("Добавление в БД")
     error = ''
