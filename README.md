@@ -20,7 +20,7 @@ python manage.py migrate
 5) Создать суперпользователя
 python manage.py createsuperuser
 6) Запустить сервер
-cd StewartPlatformProject 
-python manage.py runserver
+cd StewartPlatformProject
+python manage.py runserver 
 
 Copyright (c) 2021-present, EvgeniyNikolaevich
