@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class system_stewart_platform(models.Model):
@@ -16,6 +17,9 @@ class system_stewart_platform(models.Model):
 
     def _str_(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('systemDetailView', args=[str(self.id)])
 
     class Meta:
         verbose_name = 'Система Stewart Platform'
