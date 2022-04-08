@@ -15,6 +15,9 @@
                 <p>Крен(х): {{ law_for_platform_wave.γ_roll_x }}</p>
                 <p>Тангаж(y): {{ law_for_platform_wave.θ_pitch_y }}</p>
                 <p>Рыскание(z): {{ law_for_platform_wave.ψ_yaw_z }}</p>
+                <p>Пользователь: {{ law_for_platform_wave.author }}</p>
+                <p>Добавлено: {{ law_for_platform_wave.time_create }}</p>
+                <p>Изменено: {{ law_for_platform_wave.time_update }}</p>
          </div>
 
   <a href='{% url 'LawWaveEditView' law_for_platform_wave.pk %}'>Редактирование промежутка времени</a>

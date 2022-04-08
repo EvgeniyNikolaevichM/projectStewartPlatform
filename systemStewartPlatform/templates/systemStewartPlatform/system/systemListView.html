@@ -14,6 +14,9 @@
             <p>Закон движения системы: {{ system_stewart_platform.law_system }}</p>
             <p>Размер матрицы по оси x: {{ system_stewart_platform.x_max_matrix }}</p>
             <p>Размер матрицы по оси y: {{ system_stewart_platform.y_max_matrix }}</p>
+            <p>Пользователь: {{ system_stewart_platform.author }}</p>
+            <p>Добавлено: {{ system_stewart_platform.time_create }}</p>
+            <p>Изменено: {{ system_stewart_platform.time_update }}</p>
         </div>
         {% endfor %}
     {% else %}

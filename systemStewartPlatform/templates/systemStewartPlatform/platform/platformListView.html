@@ -16,6 +16,9 @@
                 <p>Порт подключения: {{ stewart_platform.port }}</p>
                 <p>Позиция базового модуля в матрице по оси х: {{ stewart_platform.position_x_in_matrix }}</p>
                 <p>Позиция базового модуля в матрице по оси у: {{ stewart_platform.position_y_in_matrix }}</p>
+                <p>Пользователь: {{ stewart_platform.author }}</p>
+                <p>Добавлено: {{ stewart_platform.time_create }}</p>
+                <p>Изменено: {{ stewart_platform.time_update }}</p>
         </div>
         {% endfor %}
     {% else %}

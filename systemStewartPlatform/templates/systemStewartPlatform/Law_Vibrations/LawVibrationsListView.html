@@ -17,6 +17,9 @@
                 <p>Крен(х): {{ law_for_platform_vibrations.γ_roll_x }}</p>
                 <p>Тангаж(y): {{ law_for_platform_vibrations.θ_pitch_y }}</p>
                 <p>Рыскание(z): {{ law_for_platform_vibrations.ψ_yaw_z }}</p>
+                <p>Пользователь: {{ law_for_platform_vibrations.author }}</p>
+                <p>Добавлено: {{ law_for_platform_vibrations.time_create }}</p>
+                <p>Изменено: {{ law_for_platform_vibrations.time_update }}</p>
         </div>
         {% endfor %}
     {% else %}

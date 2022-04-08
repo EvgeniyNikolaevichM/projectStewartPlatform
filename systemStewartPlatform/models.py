@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 class system_stewart_platform(models.Model):
@@ -16,9 +16,11 @@ class system_stewart_platform(models.Model):
                 blank=True, default='Волна', help_text='')
     x_max_matrix = models.IntegerField('Размер матрицы по оси x')
     y_max_matrix = models.IntegerField('Размер матрицы по оси y')
-    # time_create = models.DateTimeField(auto_now_add=True)
-    # time_update = models.DateTimeField(auto_now=True)
-    # author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, related_name='system_stewart_platform_user_created',
+                                            verbose_name=u'Пользователь', on_delete=models.CASCADE, null=True,
+                                            blank=True, default=None)
+    time_create = models.DateTimeField(auto_now_add=True, verbose_name="Добавлено")  # YYYY-MM-DD HH:MM
+    time_update = models.DateTimeField(auto_now=True, verbose_name="Изменено")
 
     def _str_(self):
         return self.title
@@ -39,9 +41,11 @@ class stewart_platform(models.Model):
     port = models.PositiveSmallIntegerField('Порт подключения', default=0)
     position_x_in_matrix = models.IntegerField('Позиция базового модуля в матрице по оси х')
     position_y_in_matrix = models.IntegerField('Позиция базового модуля в матрице по оси у')
-    # time_create = models.DateTimeField(auto_now_add=True)
-    # time_update = models.DateTimeField(auto_now=True)
-    # author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, related_name='stewart_platform_user_created',
+                                            verbose_name=u'Пользователь', on_delete=models.CASCADE, null=True,
+                                            blank=True, default=None)
+    time_create = models.DateTimeField(auto_now_add=True, verbose_name="Добавлено")  # YYYY-MM-DD HH:MM
+    time_update = models.DateTimeField(auto_now=True, verbose_name="Изменено")
 
     def _str_(self):
         return self.title
@@ -63,9 +67,11 @@ class law_for_platform_wave(models.Model):
     γ_roll_x = models.IntegerField('Крен(х)')
     θ_pitch_y = models.IntegerField('Тангаж(y)')
     ψ_yaw_z = models.IntegerField('Рыскание(z)')
-    # time_create = models.DateTimeField(auto_now_add=True)
-    # time_update = models.DateTimeField(auto_now=True)
-    # author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, related_name='law_for_platform_wave_user_created',
+                                            verbose_name=u'Пользователь', on_delete=models.CASCADE, null=True,
+                                            blank=True, default=None)
+    time_create = models.DateTimeField(auto_now_add=True, verbose_name="Добавлено")  # YYYY-MM-DD HH:MM
+    time_update = models.DateTimeField(auto_now=True, verbose_name="Изменено")
 
     def _str_(self):
         return self.title
@@ -86,9 +92,11 @@ class law_for_platform_vibrations(models.Model):
     γ_roll_x = models.IntegerField('Крен(х)')
     θ_pitch_y = models.IntegerField('Тангаж(y)')
     ψ_yaw_z = models.IntegerField('Рыскание(z)')
-    # time_create = models.DateTimeField(auto_now_add=True)
-    # time_update = models.DateTimeField(auto_now=True)
-    # author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, related_name='law_for_platform_vibrations_user_created',
+                                            verbose_name=u'Пользователь', on_delete=models.CASCADE, null=True,
+                                            blank=True, default=None)
+    time_create = models.DateTimeField(auto_now_add=True, verbose_name="Добавлено")  # YYYY-MM-DD HH:MM
+    time_update = models.DateTimeField(auto_now=True, verbose_name="Изменено")
 
     def _str_(self):
         return self.title
