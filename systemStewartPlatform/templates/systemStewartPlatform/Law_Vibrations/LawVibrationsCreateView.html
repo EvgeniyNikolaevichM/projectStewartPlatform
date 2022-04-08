@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Добавление времени в закон "Колебания"
+{% endblock %}
+
+{% block content %}
+    <h1>Добавление времени в закон "Колебания""</h1>
+    <form action="" method="post">{% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Сохранить" />
+    </form>
+{% endblock %}

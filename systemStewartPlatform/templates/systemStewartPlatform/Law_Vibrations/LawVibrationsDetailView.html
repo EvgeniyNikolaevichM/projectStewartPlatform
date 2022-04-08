@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Просмотр "Колебания"
+{% endblock %}
+
+{% block content %}
+    <h1>Просмотр промежутка времени в законе "Колебания"</h1>
+        <div class="post-entry">
+            <h2><a href="">Момент времени в секундах: {{ law_for_platform_vibrations.time }}</a></h2>
+                <p>Базовый модуль: {{ law_for_platform_vibrations.stewart_platform }}</p>
+                <p>Смещение по x: {{ law_for_platform_vibrations.x_coordinate }}</p>
+                <p>Смещение по y: {{ law_for_platform_vibrations.y_coordinate }}</p>
+                <p>Смещение по z: {{ law_for_platform_vibrations.z_coordinate }}</p>
+                <p>Крен(х): {{ law_for_platform_vibrations.γ_roll_x }}</p>
+                <p>Тангаж(y): {{ law_for_platform_vibrations.θ_pitch_y }}</p>
+                <p>Рыскание(z): {{ law_for_platform_vibrations.ψ_yaw_z }}</p>
+         </div>
+
+  <a href='{% url 'LawVibrationsEditView' law_for_platform_vibrations.pk %}'>Редактирование промежутка времени</a>
+  <p><a href='{% url 'LawVibrationsDeleteView' law_for_platform_vibrations.pk %}'>Удаление промежутка времени</a></p>
+{% endblock %}
