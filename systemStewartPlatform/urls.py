@@ -18,15 +18,9 @@ urlpatterns = [
     path('platformDetailView/<int:pk>/edit/', platformEditView.as_view(), name='platformEditView'),
     path('platformDeleteView/<int:pk>/delete/', platformDeleteView.as_view(), name='platformDeleteView'),
 
-    path('LawWaveListView', LawWaveListView.as_view(), name='LawWaveListView'),
-    path('LawWaveDetailView/<int:pk>/', LawWaveDetailView.as_view(), name='LawWaveDetailView'),
-    path('LawWaveNewView', LawWaveCreateView.as_view(), name='LawWaveCreateView'),
-    path('LawWaveDetailView/<int:pk>/edit/', LawWaveEditView.as_view(), name='LawWaveEditView'),
-    path('LawWaveDeleteView/<int:pk>/delete/', LawWaveDeleteView.as_view(), name='LawWaveDeleteView'),
-
-    path('LawVibrationsListView', LawVibrationsListView.as_view(), name='LawVibrationsListView'),
-    path('LawVibrationsDetailView/<int:pk>/', LawVibrationsDetailView.as_view(), name='LawVibrationsDetailView'),
-    path('LawVibrationsNewView', LawVibrationsCreateView.as_view(), name='LawVibrationsCreateView'),
-    path('LawVibrationsDetailView/<int:pk>/edit/', LawVibrationsEditView.as_view(), name='LawVibrationsEditView'),
-    path('LawVibrationsDeleteView/<int:pk>/delete/', LawVibrationsDeleteView.as_view(), name='LawVibrationsDeleteView'),
+    path('LawListView', LawListView.as_view(), name='LawListView'),
+    path('LawDetailView/<int:pk>/', LawDetailView.as_view(), name='LawDetailView'),
+    path('LawNewView', LawCreateView.as_view(), name='LawCreateView'),
+    path('LawDetailView/<int:pk>/edit/', LawEditView.as_view(), name='LawEditView'),
+    path('LawDeleteView/<int:pk>/delete/', LawDeleteView.as_view(), name='LawDeleteView'),
 ]

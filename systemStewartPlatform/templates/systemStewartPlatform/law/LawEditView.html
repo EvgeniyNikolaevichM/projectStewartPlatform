@@ -1,11 +1,11 @@
 {% extends 'main/base.html' %}
 
 {% block title %}
-Редактирование "Волна"
+Редактирование Закона
 {% endblock %}
 
 {% block content %}
-    <h1>Редактирование промежутка времени в законе "Волна"</h1>
+    <h1>Редактирование Закона</h1>
     <form action="" method="post">{% csrf_token %}
       {{ form.as_p }}
     <input type="submit" value="Сохранить" />

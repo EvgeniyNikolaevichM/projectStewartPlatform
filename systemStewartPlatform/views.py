@@ -60,12 +60,12 @@ class systemDetailView(LoginRequiredMixin, DetailView):
 class systemCreateView(LoginRequiredMixin, CreateView):
     model = system_stewart_platform
     template_name = 'systemStewartPlatform/system/systemCreateView.html'
-    fields = ['title', 'discription_system', 'law_system', 'x_max_matrix', 'y_max_matrix', 'author']
+    fields = ['title_system', 'discription_system', 'law_type_system', 'x_max_matrix', 'y_max_matrix', 'author']
 
 class systemEditView(LoginRequiredMixin, UpdateView):
     model = system_stewart_platform
     template_name = 'systemStewartPlatform/system/systemEditView.html'
-    fields = ['title', 'discription_system', 'law_system', 'x_max_matrix', 'y_max_matrix', 'author']
+    fields = ['title_system', 'discription_system', 'law_type_system', 'x_max_matrix', 'y_max_matrix', 'author']
 
 class systemDeleteView(LoginRequiredMixin, DeleteView):
     model = system_stewart_platform
@@ -84,13 +84,13 @@ class platformDetailView(LoginRequiredMixin, DetailView):
 class platformCreateView(LoginRequiredMixin, CreateView):
     model = stewart_platform
     template_name = 'systemStewartPlatform/platform/platformCreateView.html'
-    fields = ['system_stewart_platform', 'title', 'discription', 'ip_adress', 'port', 'position_x_in_matrix',
+    fields = ['system_stewart_platform', 'title_platform', 'discription_platform', 'ip_adress', 'port_platform', 'position_x_in_matrix',
               'position_y_in_matrix', 'author']
 
 class platformEditView(LoginRequiredMixin, UpdateView):
     model = stewart_platform
     template_name = 'systemStewartPlatform/platform/platformEditView.html'
-    fields = ['system_stewart_platform', 'title', 'discription', 'ip_adress', 'port', 'position_x_in_matrix',
+    fields = ['system_stewart_platform', 'title_platform', 'discription_platform', 'ip_adress', 'port_platform', 'position_x_in_matrix',
               'position_y_in_matrix', 'author']
 
 class platformDeleteView(LoginRequiredMixin, DeleteView):
@@ -99,53 +99,25 @@ class platformDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('home')
 
 
-class LawWaveListView(LoginRequiredMixin, ListView):
-    model = law_for_platform_wave
-    template_name = "systemStewartPlatform/law_wave/LawWaveListView.html"
+class LawListView(LoginRequiredMixin, ListView):
+    model = law_for_platform
+    template_name = "systemStewartPlatform/law/LawListView.html"
 
-class LawWaveDetailView(LoginRequiredMixin, DetailView):
-    model = law_for_platform_wave
-    template_name = "systemStewartPlatform/law_wave/LawWaveDetailView.html"
+class LawDetailView(LoginRequiredMixin, DetailView):
+    model = law_for_platform
+    template_name = "systemStewartPlatform/law/LawDetailView.html"
 
-class LawWaveCreateView(LoginRequiredMixin, CreateView):
-    model = law_for_platform_wave
-    template_name = 'systemStewartPlatform/law_wave/LawWaveCreateView.html'
-    fields = ['stewart_platform', 'time', 'x_coordinate', 'y_coordinate', 'z_coordinate', 'γ_roll_x',
-              'θ_pitch_y', 'ψ_yaw_z', 'author']
+class LawCreateView(LoginRequiredMixin, CreateView):
+    model = law_for_platform
+    template_name = 'systemStewartPlatform/law/LawCreateView.html'
+    fields = ['stewart_platform', 'law_type_plat', 'amplitude', 'coordinates_t', 'author']
 
-class LawWaveEditView(LoginRequiredMixin, UpdateView):
-    model = law_for_platform_wave
-    template_name = 'systemStewartPlatform/law_wave/LawWaveEditView.html'
-    fields = ['stewart_platform', 'time', 'x_coordinate', 'y_coordinate', 'z_coordinate', 'γ_roll_x',
-              'θ_pitch_y', 'ψ_yaw_z', 'author']
+class LawEditView(LoginRequiredMixin, UpdateView):
+    model = law_for_platform
+    template_name = 'systemStewartPlatform/law/LawEditView.html'
+    fields = ['stewart_platform', 'law_type_plat', 'amplitude', 'coordinates_t', 'author']
 
-class LawWaveDeleteView(LoginRequiredMixin, DeleteView):
-    model = law_for_platform_wave
-    template_name = 'systemStewartPlatform/law_wave/LawWaveDeleteView.html'
-    success_url = reverse_lazy('home')
-
-
-class LawVibrationsListView(LoginRequiredMixin, ListView):
-    model = law_for_platform_vibrations
-    template_name = "systemStewartPlatform/law_Vibrations/LawVibrationsListView.html"
-
-class LawVibrationsDetailView(LoginRequiredMixin, DetailView):
-    model = law_for_platform_vibrations
-    template_name = "systemStewartPlatform/law_Vibrations/LawVibrationsDetailView.html"
-
-class LawVibrationsCreateView(LoginRequiredMixin, CreateView):
-    model = law_for_platform_vibrations
-    template_name = 'systemStewartPlatform/law_Vibrations/LawVibrationsCreateView.html'
-    fields = ['stewart_platform', 'time', 'x_coordinate', 'y_coordinate', 'z_coordinate', 'γ_roll_x',
-              'θ_pitch_y', 'ψ_yaw_z', 'author']
-
-class LawVibrationsEditView(LoginRequiredMixin, UpdateView):
-    model = law_for_platform_vibrations
-    template_name = 'systemStewartPlatform/law_Vibrations/LawVibrationsEditView.html'
-    fields = ['stewart_platform', 'time', 'x_coordinate', 'y_coordinate', 'z_coordinate', 'γ_roll_x',
-              'θ_pitch_y', 'ψ_yaw_z', 'author']
-
-class LawVibrationsDeleteView(LoginRequiredMixin, DeleteView):
-    model = law_for_platform_vibrations
-    template_name = 'systemStewartPlatform/law_Vibrations/LawVibrationsDeleteView.html'
+class LawDeleteView(LoginRequiredMixin, DeleteView):
+    model = law_for_platform
+    template_name = 'systemStewartPlatform/law/LawDeleteView.html'
     success_url = reverse_lazy('home')
