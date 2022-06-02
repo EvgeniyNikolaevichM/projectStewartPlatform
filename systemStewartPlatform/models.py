@@ -23,7 +23,7 @@ class system_stewart_platform(models.Model):
     time_update = models.DateTimeField(auto_now=True, verbose_name="Изменено")
 
     def _str_(self):
-        return self.title
+        return self.title_system
 
     def get_absolute_url(self):
         return reverse('systemDetailView', args=[str(self.id)])
@@ -33,8 +33,30 @@ class system_stewart_platform(models.Model):
         verbose_name_plural = 'Системы Stewart Platform'
 
 
+class law_for_platform(models.Model):
+    law_type_plat = models.CharField('Наименование типа закона', max_length=50)
+    amplitude = models.IntegerField('Амплитуда закона от 0 до 100')
+    coordinates_t = models.JSONField('Координаты и параметры для платформы')
+    author = models.ForeignKey(User, related_name='law_for_platform_wave_user_created',
+                                            verbose_name=u'Пользователь', on_delete=models.CASCADE, null=True,
+                                            blank=True, default=None)
+    time_create = models.DateTimeField(auto_now_add=True, verbose_name="Добавлено")  # YYYY-MM-DD HH:MM
+    time_update = models.DateTimeField(auto_now=True, verbose_name="Изменено")
+
+    def _str_(self):
+        return self.law_type_plat
+
+    def get_absolute_url(self):
+        return reverse('LawDetailView', args=[str(self.id)])
+
+    class Meta:
+        verbose_name = 'Закон движения для базового модуля'
+        verbose_name_plural = 'Законы движения для базового модуля'
+
+
 class stewart_platform(models.Model):
-    system_stewart_platform= models.ForeignKey(system_stewart_platform, verbose_name='Система', on_delete=models.CASCADE)
+    system_stewart_platform = models.ForeignKey(system_stewart_platform, verbose_name='Система', on_delete=models.CASCADE)
+    law_type = models.ForeignKey(law_for_platform, verbose_name='Закон движения платформы', on_delete=models.CASCADE)
     title_platform = models.CharField('Наименование базового модуля', max_length=50)
     discription_platform = models.CharField('Описание базового модуля', max_length=500)
     ip_adress = models.GenericIPAddressField('IP адрес', protocol='both', unpack_ipv4=False)
@@ -48,7 +70,7 @@ class stewart_platform(models.Model):
     time_update = models.DateTimeField(auto_now=True, verbose_name="Изменено")
 
     def _str_(self):
-        return self.title
+        return self.title_platform
 
     def get_absolute_url(self):
         return reverse('platformDetailView', args=[str(self.id)])
@@ -56,25 +78,3 @@ class stewart_platform(models.Model):
     class Meta:
         verbose_name = 'Базовый модуль'
         verbose_name_plural = 'Базовые модули'
-
-
-class law_for_platform(models.Model):
-    stewart_platform = models.ForeignKey(stewart_platform, verbose_name='Базовый модуль', on_delete=models.CASCADE)
-    law_type_plat = models.CharField('Наименование типа закона', max_length=50)
-    amplitude = models.IntegerField('Амплитуда закона от 0 до 100')
-    coordinates_t = models.JSONField('Координаты и параметры для платформы')
-    author = models.ForeignKey(User, related_name='law_for_platform_wave_user_created',
-                                            verbose_name=u'Пользователь', on_delete=models.CASCADE, null=True,
-                                            blank=True, default=None)
-    time_create = models.DateTimeField(auto_now_add=True, verbose_name="Добавлено")  # YYYY-MM-DD HH:MM
-    time_update = models.DateTimeField(auto_now=True, verbose_name="Изменено")
-
-    def _str_(self):
-        return self.title
-
-    def get_absolute_url(self):
-        return reverse('LawDetailView', args=[str(self.id)])
-
-    class Meta:
-        verbose_name = 'Закон движения для базового модуля'
-        verbose_name_plural = 'Законы движения для базового модуля'

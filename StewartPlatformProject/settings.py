@@ -106,7 +106,7 @@ WSGI_APPLICATION = 'StewartPlatformProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'StewartPlatformDb',
+        'NAME': 'BD_system_stewart_platform',
         'USER': 'Admin',
         'PASSWORD': 'adminadmin',
         'HOST': 'localhost',

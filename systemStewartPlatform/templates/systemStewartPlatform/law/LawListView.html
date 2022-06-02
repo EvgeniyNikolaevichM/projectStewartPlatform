@@ -10,7 +10,6 @@
         {% for law_for_platform in object_list %}
         <div class="post-entry">
           <h2><a href="{% url 'LawDetailView' law_for_platform.pk %}">Закон: {{ law_for_platform.law_type_plat }}</a></h2>
-                <p>Базовый модуль: {{ law_for_platform.stewart_platform }}</p>
                 <p>Амплитуда: {{ law_for_platform.amplitude }}</p>
                 <p>Координаты и параметры: {{ law_for_platform.coordinates_t }}</p>
                 <p>Пользователь: {{ law_for_platform.author }}</p>

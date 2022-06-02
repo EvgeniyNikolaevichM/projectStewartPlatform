@@ -84,13 +84,13 @@ class platformDetailView(LoginRequiredMixin, DetailView):
 class platformCreateView(LoginRequiredMixin, CreateView):
     model = stewart_platform
     template_name = 'systemStewartPlatform/platform/platformCreateView.html'
-    fields = ['system_stewart_platform', 'title_platform', 'discription_platform', 'ip_adress', 'port_platform', 'position_x_in_matrix',
+    fields = ['system_stewart_platform', 'law_type', 'title_platform', 'discription_platform', 'ip_adress', 'port_platform', 'position_x_in_matrix',
               'position_y_in_matrix', 'author']
 
 class platformEditView(LoginRequiredMixin, UpdateView):
     model = stewart_platform
     template_name = 'systemStewartPlatform/platform/platformEditView.html'
-    fields = ['system_stewart_platform', 'title_platform', 'discription_platform', 'ip_adress', 'port_platform', 'position_x_in_matrix',
+    fields = ['system_stewart_platform', 'law_type', 'title_platform', 'discription_platform', 'ip_adress', 'port_platform', 'position_x_in_matrix',
               'position_y_in_matrix', 'author']
 
 class platformDeleteView(LoginRequiredMixin, DeleteView):
@@ -110,12 +110,12 @@ class LawDetailView(LoginRequiredMixin, DetailView):
 class LawCreateView(LoginRequiredMixin, CreateView):
     model = law_for_platform
     template_name = 'systemStewartPlatform/law/LawCreateView.html'
-    fields = ['stewart_platform', 'law_type_plat', 'amplitude', 'coordinates_t', 'author']
+    fields = ['law_type_plat', 'amplitude', 'coordinates_t', 'author']
 
 class LawEditView(LoginRequiredMixin, UpdateView):
     model = law_for_platform
     template_name = 'systemStewartPlatform/law/LawEditView.html'
-    fields = ['stewart_platform', 'law_type_plat', 'amplitude', 'coordinates_t', 'author']
+    fields = ['law_type_plat', 'amplitude', 'coordinates_t', 'author']
 
 class LawDeleteView(LoginRequiredMixin, DeleteView):
     model = law_for_platform
