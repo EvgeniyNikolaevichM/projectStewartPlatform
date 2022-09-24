@@ -1,11 +1,11 @@
 #функционально-ориентированный подход:
 
 from django.shortcuts import render, redirect
-from .models import *
 from django.db import transaction
-# from .forms import Create_sytemForm
-
+# from .forms import Create_systemForm
+from .models import *
 import logging
+
 logger = logging.getLogger('TEST_LOGGER_NAME')
 
 
@@ -44,7 +44,6 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 class LoginRequiredMixin(object):
-
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(LoginRequiredMixin, self).dispatch(*args, **kwargs)
@@ -72,7 +71,6 @@ class systemDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'systemStewartPlatform/system/systemDeleteView.html'
     success_url = reverse_lazy('home')
 
-
 class platformListView(LoginRequiredMixin, ListView):
     model = stewart_platform
     template_name = "systemStewartPlatform/platform/platformListView.html"
@@ -97,7 +95,6 @@ class platformDeleteView(LoginRequiredMixin, DeleteView):
     model = stewart_platform
     template_name = 'systemStewartPlatform/platform/platformDeleteView.html'
     success_url = reverse_lazy('home')
-
 
 class LawListView(LoginRequiredMixin, ListView):
     model = law_for_platform

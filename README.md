@@ -6,7 +6,7 @@ Django >= 4.0
 Разработка
 1) Активировать виртуальное окружение
 venv\Scripts\activate
-2Устанавливить зависимости:
+2) Устанавить зависимости:
  pip install -r requirements.txt
  pip freeze > requirements.txt
 3)Выполнить команду для выполнения миграций
